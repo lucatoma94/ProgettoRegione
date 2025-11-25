@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
-crm.json
+.venv/
+app.db
+uploads/
+.env
