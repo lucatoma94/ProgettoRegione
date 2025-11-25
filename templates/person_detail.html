@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dettaglio persona</h2>
+<p>Progetto: <a href="/progetti/{{ project.id }}">{{ project.name }}</a></p>
+<table class="table table-striped">
+  <tr><th>Nome</th><td>{{ person.nome }}</td></tr>
+  <tr><th>Cognome</th><td>{{ person.cognome }}</td></tr>
+  <tr><th>Codice fiscale</th><td>{{ person.codice_fiscale }}</td></tr>
+  <tr><th>Indirizzo domicilio</th><td>{{ person.indirizzo_domicilio }}</td></tr>
+  <tr><th>Indirizzo residenza</th><td>{{ person.indirizzo_residenza }}</td></tr>
+  <tr><th>Data nascita</th><td>{{ person.data_nascita }}</td></tr>
+  <tr><th>Comune nascita</th><td>{{ person.comune_nascita }}</td></tr>
+  <tr><th>Provincia nascita</th><td>{{ person.provincia_nascita }}</td></tr>
+  <tr><th>Sesso</th><td>{{ person.sesso }}</td></tr>
+  <tr><th>Numero documento</th><td>{{ person.numero_documento }}</td></tr>
+  <tr><th>Ente rilascio</th><td>{{ person.ente_rilascio }}</td></tr>
+  <tr><th>Data rilascio</th><td>{{ person.data_rilascio }}</td></tr>
+  <tr><th>Data scadenza</th><td>{{ person.data_scadenza }}</td></tr>
+  <tr><th>Titolo studio</th><td>{{ person.titolo_studio_piu_recente }}</td></tr>
+  <tr><th>Data conseguimento titolo</th><td>{{ person.data_conseguimento_titolo }}</td></tr>
+  <tr><th>Situazione occupazionale</th><td>{{ person.situazione_occupazionale }}</td></tr>
+  <tr><th>Clausola privacy</th><td>{{ 'OK' if person.privacy_ok else 'Mancante' }}</td></tr>
+  <tr><th>CV firmato</th><td>{{ 'Sì' if person.cv_firmato else 'No' }}</td></tr>
+  <tr><th>Data CV</th><td>{{ person.data_cv }}</td></tr>
+  <tr><th>Creato il</th><td>{{ person.created_at.strftime('%Y-%m-%d %H:%M') if person.created_at else '' }}</td></tr>
+</table>
+<a class="btn btn-secondary" href="/progetti/{{ project.id }}">Torna al progetto</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2>Seleziona o crea un progetto</h2>
+    {% if project %}
+      <div class="alert alert-info">Stai lavorando sul progetto <strong>{{ project.name }}</strong></div>
+    {% endif %}
+    <form method="post" action="/progetto">
+      <div class="mb-3">
+        <label class="form-label">Nome progetto</label>
+        <input type="text" name="project_name" class="form-control" required>
+      </div>
+      <button class="btn btn-success" type="submit">Procedi</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
