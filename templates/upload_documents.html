@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Caricamento documenti</h2>
+<div class="alert alert-primary">Progetto corrente: <strong>{{ project.name }}</strong></div>
+<form method="post" action="/process" enctype="multipart/form-data" class="row g-3">
+  <div class="col-md-4">
+    <label class="form-label">Carica CV</label>
+    <input class="form-control" type="file" name="cv" accept="application/pdf,image/*" required>
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Documento di identità</label>
+    <input class="form-control" type="file" name="documento_identita" accept="application/pdf,image/*" required>
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Tessera sanitaria</label>
+    <input class="form-control" type="file" name="tessera_sanitaria" accept="application/pdf,image/*" required>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-success" type="submit">Esegui controllo</button>
+  </div>
+</form>
+{% endblock %}

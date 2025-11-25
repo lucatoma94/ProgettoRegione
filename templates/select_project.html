@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Risultati estrazione</h2>
+<div class="alert alert-primary">Progetto: <strong>{{ project.name }}</strong></div>
+
+{% if alerts %}
+<div class="alert alert-warning">
+  <h5>Alert</h5>
+  <ul>
+    {% for alert in alerts %}
+      <li>{{ alert }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% else %}
+<div class="alert alert-success">CV completo e conforme.</div>
+{% endif %}
+
+<h4>Dati documento di identità</h4>
+<table class="table table-bordered">
+  <tr><th>Nome</th><td>{{ data.nome }}</td></tr>
+  <tr><th>Cognome</th><td>{{ data.cognome }}</td></tr>
+  <tr><th>Numero documento</th><td>{{ data.numero_documento }}</td></tr>
+  <tr><th>Ente di rilascio</th><td>{{ data.ente_rilascio }}</td></tr>
+  <tr><th>Data di nascita</th><td>{{ data.data_nascita }}</td></tr>
+  <tr><th>Comune di nascita</th><td>{{ data.comune_nascita }}</td></tr>
+  <tr><th>Provincia</th><td>{{ data.provincia_nascita }}</td></tr>
+  <tr><th>Sesso</th><td>{{ data.sesso }}</td></tr>
+  <tr><th>Data rilascio</th><td>{{ data.data_rilascio }}</td></tr>
+  <tr><th>Data scadenza</th><td>{{ data.data_scadenza }}</td></tr>
+  <tr><th>Indirizzo residenza</th><td>{{ data.indirizzo_residenza }}</td></tr>
+</table>
+
+<h4>Dati tessera sanitaria</h4>
+<table class="table table-bordered">
+  <tr><th>Codice fiscale</th><td>{{ data.codice_fiscale }}</td></tr>
+</table>
+
+<h4>Dati CV</h4>
+<table class="table table-bordered">
+  <tr><th>Nome</th><td>{{ data.nome }}</td></tr>
+  <tr><th>Cognome</th><td>{{ data.cognome }}</td></tr>
+  <tr><th>Indirizzo domicilio</th><td>{{ data.indirizzo_domicilio }}</td></tr>
+  <tr><th>Indirizzo residenza</th><td>{{ data.indirizzo_residenza }}</td></tr>
+  <tr><th>Titolo di studio</th><td>{{ data.titolo_studio_piu_recente.titolo }}</td></tr>
+  <tr><th>Data conseguimento</th><td>{{ data.titolo_studio_piu_recente.data_conseguimento }}</td></tr>
+  <tr><th>Situazione occupazionale</th><td>{{ data.situazione_occupazionale }}</td></tr>
+  <tr><th>Clausola privacy</th><td>{{ 'Sì' if data.privacy_clause_present else 'No' }}</td></tr>
+  <tr><th>Firma presente</th><td>{{ 'Sì' if data.firma_presente else 'No' }}</td></tr>
+  <tr><th>Data CV</th><td>{{ data.data_cv }}</td></tr>
+</table>
+<a class="btn btn-secondary" href="/upload">Nuovo caricamento</a>
+<a class="btn btn-outline-primary" href="/progetti">Vai ai progetti</a>
+{% endblock %}

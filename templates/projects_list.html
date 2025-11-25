@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Progetti</h2>
+<table class="table table-striped">
+  <thead>
+    <tr><th>Nome</th><th>Creato il</th><th>Azioni</th></tr>
+  </thead>
+  <tbody>
+    {% for project in projects %}
+    <tr>
+      <td>{{ project.name }}</td>
+      <td>{{ project.created_at.strftime('%Y-%m-%d') if project.created_at else '' }}</td>
+      <td><a class="btn btn-sm btn-outline-primary" href="/progetti/{{ project.id }}">Dettagli</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a class="btn btn-success" href="/progetto">Nuovo progetto</a>
+{% endblock %}
